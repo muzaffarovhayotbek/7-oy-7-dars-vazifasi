@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-family: sans-serif;
+}
+
+.title-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-main a {
+  font-size: 36px;
+  color: black;
+  font-family: sans-serif;
+}
