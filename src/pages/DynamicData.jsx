@@ -1,15 +1,32 @@
 import React, { useState } from 'react';
-import './DynamicData.css';
 import DynamicDataChart from '../components/DynamicDataChart';
+import './DynamicData.css';
 
 function DynamicData() {
-  const [information, setInformation] = useState('');
-  const [data, setData] = useState([{ month: 'Yanvar', sales: 4000 }]);
+  const [month, setMonth] = useState('');
+  const [sales, setSales] = useState('');
+  const [data, setData] = useState([
+    { month: 'Jan', sales: 2.3 },
+    { month: 'Feb', sales: 3.1 },
+    { month: 'Mar', sales: 4.0 },
+    { month: 'Apr', sales: 10.1 },
+    { month: 'May', sales: 4.0 },
+    { month: 'Jun', sales: 3.6 },
+    { month: 'Jul', sales: 3.2 },
+    { month: 'Aug', sales: 2.3 },
+    { month: 'Sep', sales: 1.4 },
+    { month: 'Oct', sales: 0.8 },
+    { month: 'Nov', sales: 0.5 },
+    { month: 'Dec', sales: 0.2 },
+  ]);
 
   function handleSave() {
-    if (information.trim()) {
-      setData([...data, { month: information, sales: 0 }]);
-      setInformation('');
+    if (month.trim() && sales.trim() && !isNaN(sales)) {
+      setData([...data, { month, sales: Number(sales) }]);
+      setMonth('');
+      setSales('');
+    } else {
+      alert("Iltimos, to'g'ri ma'lumot kiriting!");
     }
   }
 
@@ -18,20 +35,22 @@ function DynamicData() {
       <div className="container dynamicData">
         <label>Dinamik Ma'lumotlar bilan Ishlash</label>
         <input
-          value={information}
-          onChange={(e) => setInformation(e.target.value)}
+          value={month}
+          onChange={(e) => setMonth(e.target.value)}
           type="text"
-          placeholder="Enter information"
+          placeholder="Oy nomini kiriting"
         />
-        <input type="number" placeholder="Enter month" />
-        <button onClick={handleSave}>Enter</button>
+        <input
+          value={sales}
+          onChange={(e) => setSales(e.target.value)}
+          type="number"
+          placeholder="Savdo hajmini kiriting"
+        />
+        <button onClick={handleSave}>Qo'shish</button>
       </div>
-      <DynamicDataChart />
-      <ul>
-        {data.map((info, index) => (
-          <li key={index}>{info.month}</li>
-        ))}
-      </ul>
+
+      {/* Dinamik chart */}
+      <DynamicDataChart data={data} />
     </div>
   );
 }

@@ -1,11 +1,11 @@
-import { useState } from "react";
-import ReactApexChart from "react-apexcharts";
+import { useState } from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 const LineChart = () => {
   const [state, setState] = useState({
     series: [
       {
-        name: "Savdo hajmi",
+        name: 'Savdo hajmi',
         data: [
           1200, 1240, 2200, 3200, 4000, 6000, 6500, 7000, 7200, 7500, 7900,
           8000,
@@ -14,29 +14,29 @@ const LineChart = () => {
     ],
     options: {
       chart: {
-        type: "line",
+        type: 'line',
         height: 350,
       },
       stroke: {
-        curve: "smooth", // Chiziqni yumshoq qilish
+        curve: 'smooth',
       },
       dataLabels: {
         enabled: false,
       },
       xaxis: {
         categories: [
-          "Yanvar",
-          "Fevral",
-          "Mart",
-          "Aprel",
-          "May",
-          "Iyun",
-          "Iyul",
-          "Avgust",
-          "Sentabr",
-          "Oktabr",
-          "Noyabr",
-          "Dekabr",
+          'Yanvar',
+          'Fevral',
+          'Mart',
+          'Aprel',
+          'May',
+          'Iyun',
+          'Iyul',
+          'Avgust',
+          'Sentabr',
+          'Oktabr',
+          'Noyabr',
+          'Dekabr',
         ],
       },
     },

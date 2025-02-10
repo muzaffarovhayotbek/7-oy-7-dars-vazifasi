@@ -9,7 +9,7 @@ function SimpleStaticChart() {
       <div className="title-main">
         <NavLink to="/lineChart">Line chart</NavLink>
         <NavLink to="/lineChart">Bar chart</NavLink>
-        <NavLink to="/line">pie chart</NavLink>
+        <NavLink to="/PieChart">pie chart</NavLink>
       </div>
       <h3>Oylik savdo hajmi</h3>
       <LineChart />
